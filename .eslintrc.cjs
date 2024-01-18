@@ -53,5 +53,6 @@ module.exports = {
       },
     ],
     'vue/comment-directive': 'off',
+    'vue/multi-word-component-names': 'off',
   },
 }
