@@ -1,6 +1,6 @@
 <script setup>
 import HelloWorld from '@/components/HelloWorld.vue'
-import { useUserStore } from '@/store/user'
+import { useUserStore } from '@/stores/user'
 let userStore = useUserStore()
 console.log(userStore.name)
 </script>
