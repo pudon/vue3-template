@@ -1,13 +1,20 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import { resolve } from 'path'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
 
-// 指定解析路径
-const pathResolve = dir => resolve(__dirname, dir)
+import { resolve } from 'path'
+const pathResolve = dir => resolve(__dirname, dir) // 指定解析路径
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    AutoImport({
+      imports: ['vue', 'vue-router'],
+    }),
+    Components(),
+  ],
   resolve: {
     alias: {
       '@': pathResolve('./src'),
