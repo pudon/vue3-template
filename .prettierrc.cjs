@@ -19,4 +19,10 @@ module.exports = {
   useTabs: false, // 是否使用tab进行缩进（默认false）
   embeddedLanguageFormatting: 'auto', // 是否格式化嵌入的内容
   vueIndentScriptAndStyle: false, // 是否缩进Vue文件中的代码
+  overrides: [
+    {
+      files: '*.html',
+      options: { parser: 'html' },
+    },
+  ],
 }
