@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 
-export const useUserStore = defineStore('user', {
+export const useUserStore = defineStore({
+  id: 'user',
   state: () => ({
     name: 'Eduardo',
   }),
@@ -11,5 +12,8 @@ export const useUserStore = defineStore('user', {
     setName(name) {
       this.name = name
     },
+  },
+  persist: {
+    paths: ['name'],
   },
 })

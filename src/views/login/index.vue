@@ -2,6 +2,7 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 import { useUserStore } from '@/stores/user'
 let userStore = useUserStore()
+userStore.name = 'pudon'
 console.log(userStore.name)
 </script>
 
