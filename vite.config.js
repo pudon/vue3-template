@@ -24,4 +24,8 @@ export default defineConfig({
       '@': pathResolve('./src'),
     },
   },
+  server: {
+    host: '0.0.0.0',
+    port: 9520,
+  },
 })
