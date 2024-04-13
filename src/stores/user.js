@@ -6,7 +6,7 @@ export const useUserStore = defineStore({
     name: 'Eduardo',
   }),
   getters: {
-    upperCaseName: state => state.name.toUpperCase(),
+    upperCaseName: (state) => state.name.toUpperCase(),
   },
   actions: {
     setName(name) {
