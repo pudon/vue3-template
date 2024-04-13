@@ -1,24 +1,16 @@
 module.exports = {
-  arrowParens: 'avoid', // 箭头函数只有一个参数的时候可以忽略括号
-  bracketSpacing: true, // 括号内部不要出现空格
-  endOfLine: 'lf', // 结尾是 \n \r \n\r auto
-  htmlWhitespaceSensitivity: 'css', // 根据显示样式决定 html 要不要折行
-  insertPragma: false, // 插入 @format 标记
-  singleAttributePerLine: false, // 多个属性是否写在同一行
-  bracketSameLine: false, // 大括号是否与控制语句在同一行
-  jsxBracketSameLine: false, // jsx > 是否在同一行
-  jsxSingleQuote: false, // jsx 使用单引号
   printWidth: 120, // 每行代码长度（默认80）
-  proseWrap: 'preserve', // 是否要换行
-  quoteProps: 'as-needed', // 对象的 key 仅在必要时用引号
-  requirePragma: false, // 是否要注释来决定是否格式化代码
-  semi: false, // 语句末尾是否要加分号
-  singleQuote: true, // 使用单引号（默认false）
   tabWidth: 2, // 每个tab相当于多少个空格（默认2）
-  trailingComma: 'es5', // 末尾逗号（默认none）
-  useTabs: false, // 是否使用tab进行缩进（默认false）
-  embeddedLanguageFormatting: 'auto', // 是否格式化嵌入的内容
-  vueIndentScriptAndStyle: false, // 是否缩进Vue文件中的代码
+  semi: false, // 语句末尾是否要加分号
+  singleQuote: true, // 是否使用单引号
+  quoteProps: 'consistent', // 对象中的属性名是否使用引号
+  jsxSingleQuote: false, // jsx中是否使用单引号
+  trailingComma: 'all', // 数组、对象最后一个元素后面是否加逗号（none | es5 | all）
+  bracketSpacing: true, // 对象大括号直接是否有空格（默认true）
+  bracketSameLine: false, // 大括号是否与控制语句在同一行（默认false）
+  arrowParens: 'always', // 箭头函数参数是否使用括号（avoid | always）
+  endOfLine: 'lf', // 结尾是 \n \r \n\r auto
+  singleAttributePerLine: false, // 多个属性是否写在同一行
   overrides: [
     {
       files: '*.html',

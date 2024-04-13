@@ -19,15 +19,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['vue'],
   rules: {
-    'prettier/prettier': [
-      'error',
-      {},
-      {
-        usePrettierrc: true,
-      },
-    ],
     'vue/singleline-html-element-content-newline': 'off',
     'vue/html-self-closing': [
       'error',
@@ -41,17 +33,7 @@ module.exports = {
         math: 'always',
       },
     ],
-    'vue/max-attributes-per-line': [
-      'error',
-      {
-        singleline: {
-          max: 6,
-        },
-        multiline: {
-          max: 1,
-        },
-      },
-    ],
+    'vue/max-attributes-per-line': 'off',
     'vue/comment-directive': 'off',
     'vue/multi-word-component-names': 'off',
   },
