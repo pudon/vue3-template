@@ -1,46 +1,94 @@
+<script setup>
+import { useUserStore } from '@/stores/user'
+const router = useRouter()
+
+const loginRules = {
+  username: [
+    { required: true, message: '请输入用户名', trigger: 'blur' },
+    { min: 3, max: 20, message: '长度在 3 到 20 个字符', trigger: 'blur' },
+  ],
+  password: [
+    { required: true, message: '请输入密码', trigger: 'blur' },
+    { min: 6, max: 20, message: '长度在 6 到 20 个字符', trigger: 'blur' },
+  ],
+}
+
+// 控制登录按钮loading
+const isLoading = ref(false)
+const userStore = useUserStore()
+
+let loginForm = reactive({
+  username: '',
+  password: '',
+})
+
+const dealLogin = () => {
+  isLoading.value = true
+
+  userStore
+    .login(loginForm)
+    .then(() => {
+      ElMessage.success('登录成功')
+      router.push({
+        name: 'Workplace',
+      })
+    })
+    .finally(() => {
+      isLoading.value = false
+    })
+}
+</script>
+
 <template>
-  <HelloWorld msg="Vite + Vue111" />
-  <el-row class="mb-4">
-    <el-button>Default</el-button>
-    <el-button type="primary">Primary</el-button>
-    <el-button type="success">Success</el-button>
-    <el-button type="info">Info</el-button>
-    <el-button type="warning">Warning</el-button>
-    <el-button type="danger">Danger</el-button>
-  </el-row>
+  <div class="login-wrap">
+    <div class="login-card-cont">
+      <img src="@/assets/images/logo.png" alt="" />
 
-  <el-row class="mb-4">
-    <el-button plain>Plain</el-button>
-    <el-button type="primary" plain>Primary</el-button>
-    <el-button type="success" plain>Success</el-button>
-    <el-button type="info" plain>Info</el-button>
-    <el-button type="warning" plain>Warning</el-button>
-    <el-button type="danger" plain>Danger</el-button>
-  </el-row>
-
-  <el-row class="mb-4">
-    <el-button round>Round</el-button>
-    <el-button type="primary" round>Primary</el-button>
-    <el-button type="success" round>Success</el-button>
-    <el-button type="info" round>Info</el-button>
-    <el-button type="warning" round>Warning</el-button>
-    <el-button type="danger" round>Danger</el-button>
-  </el-row>
-
-  <el-row>
-    <el-button :icon="Search" circle />
-    <el-button type="primary" :icon="Edit" circle />
-    <el-button type="success" :icon="Check" circle />
-    <el-button type="info" :icon="Message" circle />
-    <el-button type="warning" :icon="Star" circle />
-    <el-button type="danger" :icon="Delete" circle />
-  </el-row>
+      <div class="login-form-cont">
+        <el-form :model="loginForm" :rules="loginRules" @keyup.enter="dealLogin">
+          <el-form-item prop="username">
+            <el-input v-model="loginForm.username" prefix-icon="User" placeholder="请输入用户名" size="large" />
+          </el-form-item>
+          <el-form-item prop="password">
+            <el-input
+              v-model="loginForm.password"
+              prefix-icon="Lock"
+              placeholder="请输入密码"
+              type="password"
+              size="large"
+              show-password
+            />
+          </el-form-item>
+          <el-button type="primary" size="large" :loading="isLoading" @click="dealLogin"> 登录 </el-button>
+        </el-form>
+      </div>
+    </div>
+  </div>
 </template>
 
-<script setup>
-import HelloWorld from '@/components/HelloWorld.vue'
-import { useUserStore } from '@/stores/user'
-let userStore = useUserStore()
-userStore.name = 'pudon'
-console.log(userStore.name)
-</script>
+<style lang="scss" scoped>
+.login-wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #f0f5ff 0%, #88b9bc 100%);
+
+  .login-card-cont {
+    width: 562px;
+    margin-top: -10vh;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: #88b9bc 1px 1px 1px;
+
+    .login-form-cont {
+      padding: 20px 50px 50px;
+
+      .el-button {
+        width: 100%;
+      }
+    }
+  }
+}
+</style>

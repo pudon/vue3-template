@@ -1,2 +1,9 @@
 @use './reset.css';
-@use './style.css';
+@use './variables.scss';
+@use './common.scss';
+
+html,
+body,
+#app {
+  height: 100%;
+}

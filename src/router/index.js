@@ -1,11 +1,17 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import dashboard from './modules/dashboard'
 
 const routes = [
   {
     path: '/',
-    name: 'Login',
-    component: () => import('../views/login/index.vue'),
+    redirect: 'login',
   },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/login/index.vue'),
+  },
+  dashboard,
 ]
 
 const router = createRouter({

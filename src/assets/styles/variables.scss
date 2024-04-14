@@ -1,0 +1,17 @@
+#app {
+  --el-aside-width: 200px;
+
+  .el-header {
+    --el-header-height: 70px;
+    --el-header-padding: 0;
+  }
+  
+  .el-main {
+    --el-main-padding: 20px;
+  }
+  
+  .el-footer {
+    --el-footer-padding: 0;
+    --el-footer-height: 60px;
+  }
+}

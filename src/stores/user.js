@@ -9,8 +9,13 @@ export const useUserStore = defineStore({
     upperCaseName: (state) => state.name.toUpperCase(),
   },
   actions: {
-    setName(name) {
-      this.name = name
+    login(loginForm) {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          console.log('Logged in with:', loginForm.username)
+          resolve()
+        }, 1000)
+      })
     },
   },
   persist: {
