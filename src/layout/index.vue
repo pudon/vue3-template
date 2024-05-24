@@ -1,8 +1,12 @@
-<script setup></script>
+<script setup>
+import SideBar from './components/SideBar.vue'
+</script>
 
 <template>
   <el-container class="layout-wrap">
-    <el-aside>Aside</el-aside>
+    <el-aside>
+      <SideBar />
+    </el-aside>
     <el-container>
       <el-header>Header</el-header>
       <el-main>
