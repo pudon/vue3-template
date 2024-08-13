@@ -1,10 +1,10 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
-import '@/assets/styles/index.scss'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import router from './router'
+import App from './App.vue'
+import '@/assets/styles/index.scss'
 
 const app = createApp(App)
 

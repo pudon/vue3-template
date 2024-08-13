@@ -1,5 +1,6 @@
 <script setup>
 import { useUserStore } from '@/stores/user'
+
 const router = useRouter()
 
 const loginRules = {
@@ -17,12 +18,12 @@ const loginRules = {
 const isLoading = ref(false)
 const userStore = useUserStore()
 
-let loginForm = reactive({
+const loginForm = reactive({
   username: '',
   password: '',
 })
 
-const dealLogin = () => {
+function dealLogin() {
   isLoading.value = true
 
   userStore
@@ -42,7 +43,7 @@ const dealLogin = () => {
 <template>
   <div class="login-wrap">
     <div class="login-card-cont">
-      <img src="@/assets/images/logo.png" alt="" />
+      <img src="@/assets/images/logo.png" alt="">
 
       <div class="login-form-cont">
         <el-form :model="loginForm" :rules="loginRules" @keyup.enter="dealLogin">
@@ -59,7 +60,9 @@ const dealLogin = () => {
               show-password
             />
           </el-form-item>
-          <el-button type="primary" size="large" :loading="isLoading" @click="dealLogin"> 登录 </el-button>
+          <el-button type="primary" size="large" :loading="isLoading" @click="dealLogin">
+            登录
+          </el-button>
         </el-form>
       </div>
     </div>
